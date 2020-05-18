@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <style type="text/css" rel=="stylesheet">
+  body {
+    margin:0;
+    padding:0;
+ }  
+    </style>
+    <head>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+        <title>Page Title</title>
+    </head>
+    <body>
+      <script typ="text/javascript">
+          /*
+Just learn it from greekforgreeks
+and got a little help from coding train to visulize it
+*/
+
+let values = [];
+let w = 1;
+let i = 0;
+function setup(){
+ createCanvas(windowWidth,windowHeight);
+ values = new Array(floor(width/w));
+ for(let i =0;i<values.length;i++){
+     values[i] = noise(i/100.2)*height;
+  }
+  background(0);
+  noStroke()
+  //bubbleSort(values)  
+}
+function draw (){
+   background(0);  
+   bubbleSort(values)
+  for(let i =0;i<values.length;i++){
+      fill(255);
+      rect(i*w,height-values[i],w,values[i]);
+  }
+   
+}
+
+function swap(arr,a,b){
+    let temp = arr[a];
+    arr[a] = arr[b]
+    arr[b] = temp;      
+}
+function bubbleSort(values){
+    /*for(let i =0;i<values.length;i++){
+        for(let j =0;j<values.length-i-1;j++){
+          if(values[j] > values[j+1]){
+              swap(values,j,j+1)
+           }
+        }
+    }*/
+    
+   if(i<values.length){
+     for(let j =0;j<values.length-i-1;j++){
+          if(values[j] > values[j+1]){
+              swap(values,j,j+1)
+           }
+        }
+      }
+  else{
+       i++;       
+  }
+     
+}
+
+
+      </script>  
+    </body>
+</html>
